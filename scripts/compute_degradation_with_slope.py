@@ -4,8 +4,9 @@ import os
 from sklearn.linear_model import LinearRegression
 
 # ------------- CONFIG -------------
-DATA_DIR = os.environ.get("S2_DATA_DIR", r"C:/AI/rwanda_degradation_mask/sample_data")
-DISTRICTS = ["North-Amajyaruguru", "East-Iburasirazuba"]  # edit as needed
+DATA_DIR = os.environ.get("S2_DATA_DIR", r"C:/AI/data/rwanda/")
+# DISTRICTS = ["North-Amajyaruguru", "East-Iburasirazuba"]  # edit as needed
+DISTRICTS = ["Gatsibo", "Musanze"]  # edit as needed
 LATEST_YEAR = 2023
 
 # ------------- INDICES -------------

@@ -4,7 +4,7 @@ import os
 
 # ---------------- CONFIG ----------------
 # Input slope GeoTIFF (degrees, from Copernicus DEM export in GEE)
-DATA_DIR = os.environ.get("S2_DATA_DIR", r"C:/AI/rwanda_degradation_mask/sample_data")
+DATA_DIR = os.environ.get("S2_DATA_DIR", r"C:/AI/data/rwanda")
 # DISTRICTS = ["North-Amajyaruguru", "East-Iburasirazuba"]  # edit as needed
 DISTRICTS = ["Musanze", "Gatsibo"]  # edit as needed
 
@@ -31,7 +31,7 @@ def classify_slope(slope_percent, thresholds):
 def run_for_district(district):
     # collect all years for this district
     print("district="+district)
-    input_file = DATA_DIR+"/"+district+"_SlopeClass.tif"
+    input_file = DATA_DIR+"/"+district+"_slope_NASA.tif"
 
     with rasterio.open(input_file) as src:
         slope_deg = src.read(1).astype(float)
@@ -46,7 +46,7 @@ def run_for_district(district):
     # Update profile
     profile.update(dtype=rasterio.uint8, count=1, compress='lzw')
 
-    output_file = DATA_DIR+"/"+district+"_class.tif"
+    output_file = DATA_DIR+"/"+district+"_slope_class_NASA.tif"
     with rasterio.open(output_file, "w", **profile) as dst:
         dst.write(slope_class.astype(rasterio.uint8), 1)
 

@@ -6,10 +6,11 @@ from sklearn.linear_model import LinearRegression
 # ------------- CONFIG -------------
 # Folder containing per-district, per-year GeoTIFFs exported from GEE.
 # File name pattern assumed: <District>_<YEAR>_S2.tif  (e.g., Gatsibo_2019_S2.tif)
-DATA_DIR = os.environ.get("S2_DATA_DIR", r"C:/AI/rwanda_degradation_mask/sample_data")
+DATA_DIR = os.environ.get("S2_DATA_DIR", r"C:/AI/data/rwanda/")
 
 # Choose which district to process (matching file prefixes).
-DISTRICTS = ["North-Amajyaruguru", "East-Iburasirazuba"]  # edit as needed
+# DISTRICTS = ["North-Amajyaruguru", "East-Iburasirazuba"]  # edit as needed
+DISTRICTS = ["Gatsibo", "Musanze"]  # edit as needed
 LATEST_YEAR = 2023                   # snapshot year for soil/stress indices
 
 # ------------- INDICES -------------
